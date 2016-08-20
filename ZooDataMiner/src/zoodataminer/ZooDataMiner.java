@@ -5,6 +5,8 @@
  */
 package zoodataminer;
 
+import GUI.ZooDataClassification;
+
 /**
  *
  * @author Arunalu Hasakelum
@@ -16,6 +18,7 @@ public class ZooDataMiner {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ZooDataClassification z = new ZooDataClassification();
     }
     
 }
