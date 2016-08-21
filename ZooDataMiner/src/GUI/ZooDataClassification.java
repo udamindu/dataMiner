@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.util.List;
 import javax.swing.JFrame;
 import zoodataminer.ZooLogic;
 
@@ -457,7 +458,9 @@ public class ZooDataClassification extends javax.swing.JFrame {
         catsize = (catsize.equalsIgnoreCase("Yes")) ? "1": "0";
         
         ZooLogic zooLogic = new ZooLogic(hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, noOfLegs, tail, domestic, catsize);
-        zooLogic.getPredictions();
+        List predictionList = zooLogic.getPredictions();
+        jLabel19.setText(predictionList.get(0).toString());
+        jLabel20.setText(predictionList.get(1).toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
