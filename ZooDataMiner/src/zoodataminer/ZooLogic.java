@@ -106,8 +106,6 @@ public class ZooLogic {
             while (result.next()) {
                 int preditResult = result.getInt(1);
                 double prob = result.getDouble(2);
-                System.out.println("Prediction Result: " + preditResult);
-                System.out.println("Prediction Probability: " + prob);
                 predictionList.add(0, preditResult);
                 predictionList.add(1, prob);
             }
