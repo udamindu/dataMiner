@@ -40,7 +40,6 @@ public class ZooDataClassification extends javax.swing.JFrame {
         
         this.setTitle("Classification");
         this.setLayout(null);
-        this.setSize(400, 500);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
