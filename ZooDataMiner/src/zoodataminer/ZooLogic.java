@@ -6,7 +6,6 @@
 package zoodataminer;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -61,6 +60,10 @@ public class ZooLogic {
         this.Catsize = Integer.parseInt(ct);
     }
     
+    /**
+     * contains Zoo dataset related logic to evaluate predictions
+     * @return a list contains prediction and prediction probability
+     */
     public List getPredictions(){
         oracleConnection = OracleConnection.getInstance();
         con = oracleConnection.getConnection();
