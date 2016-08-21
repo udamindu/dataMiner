@@ -19,7 +19,7 @@ public class OracleConnection {
     
     private OracleConnection(){}
     
-    private static Connection con = null;
+    private Connection con = null;
     
     private static OracleConnection instance;
     public static OracleConnection getInstance(){
@@ -29,13 +29,14 @@ public class OracleConnection {
         return instance;
     }
     
-    public static Connection getConnection(){
+    public Connection getConnection(){
         
         try {
+            DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
             //load the driver class  
             Class.forName("oracle.jdbc.driver.OracleDriver");
             
-            String url = "jdbc:oracle:thin:@localhost:1522:orcl";
+            String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 
             Properties prop = new Properties();
             prop.setProperty("user", "dmuser");
@@ -50,7 +51,7 @@ public class OracleConnection {
         return con;
     }
     
-    public static void closeConncection(){
+    public void closeConnection(){
         try {
             con.close();
         } catch (SQLException ex) {
