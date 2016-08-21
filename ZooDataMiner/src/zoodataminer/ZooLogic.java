@@ -61,7 +61,7 @@ public class ZooLogic {
         this.Catsize = Integer.parseInt(ct);
     }
     
-    public void getPredictions(){
+    public List getPredictions(){
         oracleConnection = OracleConnection.getInstance();
         con = oracleConnection.getConnection();
         predictionList = new ArrayList();
@@ -108,7 +108,8 @@ public class ZooLogic {
                 double prob = result.getDouble(2);
                 System.out.println("Prediction Result: " + preditResult);
                 System.out.println("Prediction Probability: " + prob);
-                //System.out.println("Prediction table row: " + row);
+                predictionList.add(0, preditResult);
+                predictionList.add(1, prob);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ZooDataMiner.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,6 +117,6 @@ public class ZooLogic {
             oracleConnection.closeConnection();
         }
         
-        //return predictionList;
+        return predictionList;
     }
 }
