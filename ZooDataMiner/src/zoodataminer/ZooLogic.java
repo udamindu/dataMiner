@@ -66,7 +66,8 @@ public class ZooLogic {
         con = oracleConnection.getConnection();
         predictionList = new ArrayList();
 
-        String sql = "select prediction(CLAS_SVM_1_6 using " + Hair + " as Hair, "
+        String sql = "select prediction(CLAS_SVM_1_6 using " 
+                + Hair + " as Hair, "
                 + Feathers + "  as Feathers, "
                 + Eggs + "  as Eggs, "
                 + Milk + " as Milk, "
