@@ -24,10 +24,10 @@ public class ZooDataMiner {
      */
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
-        //ZooDataClassification z = new ZooDataClassification();
+        ZooDataClassification z = new ZooDataClassification();
              
-        ZooLogic zl = new ZooLogic("1","0","0","1","0","0","1","1","1","1","0","0","4","0","0","1");
-        zl.getPredictions();
+        //ZooLogic zl = new ZooLogic("1","0","0","1","0","0","1","1","1","1","0","0","4","0","0","1");
+        //zl.getPredictions();
 
     }
     

@@ -6,6 +6,7 @@
 package GUI;
 
 import javax.swing.JFrame;
+import zoodataminer.ZooLogic;
 
 /**
  *
@@ -16,6 +17,24 @@ public class ZooDataClassification extends javax.swing.JFrame {
     /**
      * Creates new form ZooDataClassification
      */
+    
+    String hair;
+    String feathers;
+    String eggs;
+    String milk;
+    String airborne;
+    String aquatic;
+    String predator;
+    String toothed;
+    String backbone;
+    String breathes;
+    String venomous;
+    String fins;
+    String noOfLegs;
+    String tail;
+    String domestic;
+    String catsize;
+    
     public ZooDataClassification() {
         
         this.setTitle("Classification");
@@ -24,6 +43,9 @@ public class ZooDataClassification extends javax.swing.JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
+        
+        this.jLabel19.setText("");//prediction label to no value 
+        this.jLabel20.setText("");//prediction probability label to no value
     }
 
     /**
@@ -70,6 +92,8 @@ public class ZooDataClassification extends javax.swing.JFrame {
         jComboBox14 = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
         jComboBox15 = new javax.swing.JComboBox();
+        jLabel21 = new javax.swing.JLabel();
+        jComboBox16 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -198,7 +222,7 @@ public class ZooDataClassification extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -238,6 +262,11 @@ public class ZooDataClassification extends javax.swing.JFrame {
 
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Yes", "No" }));
 
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("Eggs?");
+
+        jComboBox16.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Yes", "No" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -250,9 +279,11 @@ public class ZooDataClassification extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15)
-                    .addComponent(jLabel16))
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel21))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,12 +323,21 @@ public class ZooDataClassification extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Get Results");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 255, 153), null, null));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Prediction");
@@ -364,7 +404,7 @@ public class ZooDataClassification extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel20))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -380,6 +420,45 @@ public class ZooDataClassification extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Get Results button
+        hair = jComboBox1.getSelectedItem().toString();
+        feathers = jComboBox2.getSelectedItem().toString();
+        eggs = jComboBox16.getSelectedItem().toString();
+        milk = jComboBox3.getSelectedItem().toString();
+        airborne = jComboBox4.getSelectedItem().toString();
+        aquatic = jComboBox5.getSelectedItem().toString();
+        predator = jComboBox6.getSelectedItem().toString();
+        toothed = jComboBox7.getSelectedItem().toString();
+        backbone = jComboBox8.getSelectedItem().toString();
+        breathes = jComboBox9.getSelectedItem().toString();
+        venomous = jComboBox10.getSelectedItem().toString();
+        fins = jComboBox11.getSelectedItem().toString();
+        noOfLegs = jComboBox12.getSelectedItem().toString();
+        tail = jComboBox13.getSelectedItem().toString();
+        domestic = jComboBox14.getSelectedItem().toString();
+        catsize = jComboBox15.getSelectedItem().toString();
+        
+        hair = (hair.equalsIgnoreCase("Yes")) ? "1": "0";
+        feathers = (feathers.equalsIgnoreCase("Yes")) ? "1": "0";
+        eggs = (eggs.equalsIgnoreCase("Yes")) ? "1": "0";
+        milk = (milk.equalsIgnoreCase("Yes")) ? "1": "0";
+        airborne = (airborne.equalsIgnoreCase("Yes")) ? "1": "0";
+        aquatic = (aquatic.equalsIgnoreCase("Yes")) ? "1": "0";
+        predator = (predator.equalsIgnoreCase("Yes")) ? "1": "0";
+        toothed = (toothed.equalsIgnoreCase("Yes")) ? "1": "0";
+        backbone = (backbone.equalsIgnoreCase("Yes")) ? "1": "0";
+        breathes = (breathes.equalsIgnoreCase("Yes")) ? "1": "0";
+        venomous = (venomous.equalsIgnoreCase("Yes")) ? "1": "0";
+        fins = (fins.equalsIgnoreCase("Yes")) ? "1": "0";
+        tail = (tail.equalsIgnoreCase("Yes")) ? "1": "0";
+        domestic = (domestic.equalsIgnoreCase("Yes")) ? "1": "0";
+        catsize = (catsize.equalsIgnoreCase("Yes")) ? "1": "0";
+        
+        ZooLogic zooLogic = new ZooLogic(hair, feathers, eggs, milk, airborne, aquatic, predator, toothed, backbone, breathes, venomous, fins, noOfLegs, tail, domestic, catsize);
+        zooLogic.getPredictions();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,6 +504,7 @@ public class ZooDataClassification extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox13;
     private javax.swing.JComboBox jComboBox14;
     private javax.swing.JComboBox jComboBox15;
+    private javax.swing.JComboBox jComboBox16;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
@@ -446,6 +526,7 @@ public class ZooDataClassification extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
